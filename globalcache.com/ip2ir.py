@@ -2,7 +2,7 @@
 """
 Module to send commands to a Global Caché iTach device; for example:
 
-* Send IR command; '1:3' targets the 3rd IR output socket:
+* Send IR command ('1:3' targets the 3rd IR output socket):
     python3 ip2ir.py 192.168.84.42 4998 'sendir,1:3,2,38226,1, ... ,4892' 0.1
 * Learn IR command (15 second timeout permits multiple capture attempts):
     python3 ip2ir.py 192.168.84.42 4998 'get_IRL' 15
