@@ -8,7 +8,7 @@ Tested with:
 
 ## Usage
 
-See: [ip2ir.py](ip2ir.py)
+See: [`ip2ir.py`](ip2ir.py)
 
 ```bash
 python3 ip2ir.py "${host}" "${port}" "${command}"
