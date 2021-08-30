@@ -10,9 +10,13 @@ Some examples:
     python3 ip2ir.py 192.168.84.42 4998 'sendir,1:3,2,38226,1, ... ,4892' 0.1
 * Learn IR command (15 second timeout permits multiple capture attempts):
     python3 ip2ir.py 192.168.84.42 4998 'get_IRL' 15
+* Stop learning mode (stops after learning anyway):
+    python3 ip2ir.py 192.168.84.42 4998 'stop_IRL'
 * Get device network configuration (first with default timeout, then 0.1 sec):
     python3 ip2ir.py 192.168.84.42 4998 'get_NET,0:1'
     python3 ip2ir.py 192.168.84.42 4998 'get_NET,0:1' 0.1
+* List device capabilities:
+    python3 ip2ir.py 192.168.84.42 4998 'get_devices'
 
 API Guide   : https://www.globalcache.com/files/docs/API-iTach.pdf
 Tested with : https://www.globalcache.com/products/itach/ip2ir-pspecs/
@@ -61,7 +65,7 @@ if __name__ == '__main__':
             python3 ip2ir.py 192.168.84.42 4998 'get_NET,0:1'
             python3 ip2ir.py 192.168.84.42 4998 'get_IRL' 15
             python3 ip2ir.py 192.168.84.42 4998 'stop_IRL'
-            python3 ip2ir.py 192.168.84.42 4998 'sendir,1:3,2,38226,1,1,98, ... ,4892' 0.1
+            python3 ip2ir.py 192.168.84.42 4998 'sendir,1:3,2,38226,1, ... ,4892' 0.1
         '''))
 
     default_timeout = 3 if len(sys.argv) < 5 else float(sys.argv[4])
