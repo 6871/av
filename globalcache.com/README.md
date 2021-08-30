@@ -6,7 +6,9 @@ Tested with:
 
 * [IP2IR-P](https://www.globalcache.com/products/itach/ip2ir-pspecs/)
 
-## Usage:
+## Usage
+
+See: [ip2ir.py](ip2ir.py)
 
 ```bash
 python3 ip2ir.py "${host}" "${port}" "${command}"
