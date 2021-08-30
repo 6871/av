@@ -10,7 +10,7 @@ Some examples:
     python3 ip2ir.py 192.168.84.42 4998 'sendir,1:3,2,38226,1, ... ,4892' 0.1
 * Learn IR command (15 second timeout permits multiple capture attempts):
     python3 ip2ir.py 192.168.84.42 4998 'get_IRL' 15
-* Stop learning mode (stops after learning anyway):
+* Stop learning mode (also stops on receipt of non-learning command):
     python3 ip2ir.py 192.168.84.42 4998 'stop_IRL'
 * Get device network configuration (first with default timeout, then 0.1 sec):
     python3 ip2ir.py 192.168.84.42 4998 'get_NET,0:1'

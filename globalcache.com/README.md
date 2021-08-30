@@ -24,7 +24,7 @@ python3 ip2ir.py 192.168.84.42 4998 'get_NET,0:1'
 # Capture remote control button IR code (via ip2ir device's IR receiver):
 python3 ip2ir.py 192.168.84.42 4998 'get_IRL' 15
 
-# Stop learning mode (stops after learning anyway):
+# Stop learning mode (also stops on receipt of non-learning command):
 python3 ip2ir.py 192.168.84.42 4998 'stop_IRL'
 
 # Send an IR command; note '1:3' means send via device's 3rd output socket:
