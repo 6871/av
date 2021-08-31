@@ -5,8 +5,8 @@ Send and learn IR commands over IP using a Global Caché iTach device.
 * [How To Use The Python Interface](#how-to-use-the-python-interface)
 * [Sending Learned IR Commands](#sending-learned-ir-commands)
 * [Appendices](#appendices)
-  * [Global Caché Documentation](#global-cach-documentation)
-  * [Global Caché IR Database](#global-cach-ir-database)
+  * [Global Caché Documentation](#global-caché-documentation)
+  * [Global Caché IR Database](#global-caché-ir-database)
   * [Alternate IR encoding mechanisms](#alternate-ir-encoding-mechanisms)
   * [Find IP2IR Device IP Address](#find-ip2ir-device-ip-address)
 
