@@ -4,15 +4,17 @@ Module to send commands to a Global Caché iTach device.
 
 Parameters: host port command [response_timeout]
 
+Default response timeout is 3 seconds.
+
 Some examples:
 
-* Send IR command (1:3 targets 3rd IR output socket; uses 0.1 sec timeout):
+* Send IR command (1:3 targets 3rd IR output socket; 0.1 second timeout):
     python3 ip2ir.py 192.168.84.42 4998 'sendir,1:3,2,38226,1, ... ,4892' 0.1
 * Learn IR command (15 second timeout permits multiple capture attempts):
     python3 ip2ir.py 192.168.84.42 4998 'get_IRL' 15
 * Stop learning mode (also stops on receipt of non-learning command):
     python3 ip2ir.py 192.168.84.42 4998 'stop_IRL'
-* Get device network configuration (first with default timeout, then 0.1 sec):
+* Get device network configuration (with default timeout, then 0.1 second):
     python3 ip2ir.py 192.168.84.42 4998 'get_NET,0:1'
     python3 ip2ir.py 192.168.84.42 4998 'get_NET,0:1' 0.1
 * List device capabilities:
@@ -24,6 +26,8 @@ Tested with : https://www.globalcache.com/products/itach/ip2ir-pspecs/
 import socket
 import sys
 import textwrap
+
+RX_BUFFER_SIZE = 1024
 
 
 def send_command(host, port, command, timeout):
@@ -37,12 +41,10 @@ def send_command(host, port, command, timeout):
         output = ''
         s.settimeout(timeout)
         try:
-            chunk = s.recv(1024)
+            chunk = s.recv(RX_BUFFER_SIZE)
             while len(chunk) > 0:
                 output += chunk.decode('utf-8')
-                chunk = s.recv(1024)
-        except BlockingIOError as e:
-            print(e)
+                chunk = s.recv(RX_BUFFER_SIZE)
         except socket.timeout:
             print('Assuming complete (timed out waiting for more data)')
 
