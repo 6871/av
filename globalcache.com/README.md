@@ -28,6 +28,37 @@ python3 ip2ir.py 192.168.84.42 4998 'stop_IRL'
 python3 ip2ir.py 192.168.84.42 4998 'sendir,1:3,2,38226,1,1,98, ... ,4892' 0.1
 ```
 
+# Sending Learned IR Commands
+
+The `get_IRL` command outputs an IR command in `sendir` command format, but
+the connector address will need to be changed to match the sending device's
+IR output configuration.
+
+For example, a `get_IRL` capture may output the following `sendir` command
+with an invalid output connector address of `2:1`:
+
+```
+sendir,2:1,2,38226,1,1, ... ,44,110,44,4892
+       ^^^
+```
+
+If the device has an IR blaster plugged in to the socket with address `1:3`,
+simply edit the IR command accordingly before sending it, i.e.:
+
+```
+sendir,1:3,2,38226,1,1, ... ,44,110,44,4892
+       ^^^
+```
+
+```bash
+host=192.168.84.42
+port=4998
+command='sendir,1:3,2,38226,1,1, ... ,44,110,44,4892'
+timeout=0.1
+
+python3 ip2ir.py "${host}" "${port}" "${command}" "${timeout}"
+```
+
 # Appendices
 
 ## Global Caché Documentation
