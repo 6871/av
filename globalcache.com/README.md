@@ -94,6 +94,8 @@ python3 ip2ir.py "${host}" "${port}" "${command}" "${timeout}"
 ## Find IP2IR Device IP Address
 
 ```bash
-# Linux (Ubuntu)
-nmap -sP 192.168.84.0/24 | grep -B 2 'Global Cache'
+# Linux (Ubuntu 20.04)
+network='192.168.84.0/24'
+nmap -sP "${network}"
+nmap -sP "${network}" | grep -B 2 'Global Cache'
 ```
