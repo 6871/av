@@ -36,10 +36,10 @@ def send_command(host, port, command, timeout):
         ba.extend(b'\x0D')  # command must end with Carriage Return ('\r')
         print(f'command={repr(ba)}')
         print(f'Sending command with {timeout} second response timeout...')
+        s.settimeout(timeout)
         s.connect((host, port))
         s.sendall(ba)
         output = ''
-        s.settimeout(timeout)
         try:
             chunk = s.recv(RX_BUFFER_SIZE)
             while len(chunk) > 0:
