@@ -81,6 +81,8 @@ python3 ip2ir.py "${host}" "${port}" "${command}" "${timeout}"
   * Useful sections:
     * Section 5: Command Set
     * Section 6: Error Codes
+* IR Database:
+  * https://irdb.globalcache.com
 
 ## Alternate IR encoding mechanisms
 
