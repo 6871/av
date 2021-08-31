@@ -1,21 +1,18 @@
 # Global Caché iTach Python Interface
 
-How to send and learn IR commands over IP using a Global Caché iTach device. 
+Send and learn IR commands over IP using a Global Caché iTach device. 
 
-Tested with:
+Use file [`./ip2ir.py`](ip2ir.py) to run commands. Tested with device
+[`IP2IR-P`](https://www.globalcache.com/products/itach/ip2ir-pspecs/).
 
-* [IP2IR-P](https://www.globalcache.com/products/itach/ip2ir-pspecs/)
-
-## Usage
-
-See: [`ip2ir.py`](ip2ir.py)
+To run [`./ip2ir.py`](ip2ir.py):
 
 ```bash
 python3 ip2ir.py "${host}" "${port}" "${command}"
 python3 ip2ir.py "${host}" "${port}" "${command}" "${response_timeout}"
 ```
 
-## Examples
+Examples:
 
 ```bash
 # Print device's network configuration:
@@ -31,19 +28,24 @@ python3 ip2ir.py 192.168.84.42 4998 'stop_IRL'
 python3 ip2ir.py 192.168.84.42 4998 'sendir,1:3,2,38226,1,1,98, ... ,4892' 0.1
 ```
 
-## Appendices
+# Appendices
 
-### Documentation
+## Global Caché Documentation
 
 * iTach API Guide:
-  * [Local Repository](API-iTach.pdf)
-  * [Global Caché site](https://www.globalcache.com/files/docs/API-iTach.pdf)
-    * Section 6: Error Codes 
+  * [PDF (Local Repository)](API-iTach.pdf)
+  * [PDF (Global Caché site)](https://www.globalcache.com/files/docs/API-iTach.pdf)
+  * Useful sections:
+    * Section 5: Command Set
+    * Section 6: Error Codes
 
-### Find `ip2ir` device on network
+## Alternate IR encoding mechanisms
 
-#### Linux (Ubuntu)
+* [ProntoEdit HEX Format (remotecentral.com)](http://www.remotecentral.com/features/irdisp2.htm)
+
+## Find IP2IR Device IP Address
 
 ```bash
-nmap -sP 192.168.101.0/24 | grep -B 2 'Global Cache'
+# Linux (Ubuntu)
+nmap -sP 192.168.84.0/24 | grep -B 2 'Global Cache'
 ```
