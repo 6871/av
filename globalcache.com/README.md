@@ -18,7 +18,7 @@ Examples:
 # Print device's network configuration:
 python3 ip2ir.py 192.168.84.42 4998 'get_NET,0:1'
 
-# Capture remote control button IR code (via ip2ir device's IR receiver):
+# Capture remote control IR code (uses ip2ir device's internal IR receiver):
 python3 ip2ir.py 192.168.84.42 4998 'get_IRL' 15
 
 # Stop learning mode (also stops on receipt of non-learning command):
