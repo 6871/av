@@ -94,8 +94,8 @@ python3 ip2ir.py "${host}" "${port}" "${command}" "${timeout}"
 ## Find IP2IR Device IP Address
 
 ```bash
-# Linux (Ubuntu 20.04)
+# Linux (Ubuntu 20.04); note sudo is required to get vendor information
 network='192.168.84.0/24'
-nmap -sP "${network}"
-nmap -sP "${network}" | grep -B 2 'Global Cache'
+sudo nmap -sP "${network}"
+sudo nmap -sP "${network}" | grep -B 2 'Global Cache'
 ```
